@@ -59,6 +59,8 @@ func TestScannerScan(t *testing.T) {
 		{`'test`, []output{{true, `{text 'test}`}}},
 		// join types
 		{`&&||`, []output{{true, `{join &&||}`}}},
+		{`>>`, []output{{false, `{sign >>}`}}},
+		{`>>`, []output{{false, `{sign >>}`}}},
 		{`&& ||`, []output{{false, `{join &&}`}, {false, `{whitespace  }`}, {false, `{join ||}`}}},
 		{`'||test&&'&&123`, []output{{false, `{text ||test&&}`}, {false, `{join &&}`}, {false, `{number 123}`}}},
 		// expression signs

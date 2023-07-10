@@ -69,6 +69,8 @@ func TestParse(t *testing.T) {
 		// valid parenthesis
 		{`()`, true, `[]`},
 		{`(a=1)`, false, `[{&& [{&& {{identifier a} = {number 1}}}]}]`},
+		{`( a ?>> 1 )`, false, `[{&& [{&& {{identifier a} ?>> {number 1}}}]}]`},
+		{`( a >> 1 )`, false, `[{&& [{&& {{identifier a} >> {number 1}}}]}]`},
 		{`(a="test(")`, false, `[{&& [{&& {{identifier a} = {text test(}}}]}]`},
 		{`(a="test)")`, false, `[{&& [{&& {{identifier a} = {text test)}}}]}]`},
 		{`((a=1))`, false, `[{&& [{&& [{&& {{identifier a} = {number 1}}}]}]}]`},

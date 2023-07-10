@@ -35,6 +35,7 @@ const (
 	SignLte   SignOp = "<="
 	SignGt    SignOp = ">"
 	SignGte   SignOp = ">="
+	SignIn	  SignOp = ">>"
 
 	// array/any operators
 	SignAnyEq    SignOp = "?="
@@ -45,6 +46,8 @@ const (
 	SignAnyLte   SignOp = "?<="
 	SignAnyGt    SignOp = "?>"
 	SignAnyGte   SignOp = "?>="
+	SignAnyIn	 SignOp = "?>>"
+	
 )
 
 // TokenType represents a Token type.
@@ -463,6 +466,7 @@ func isSignOperator(literal string) bool {
 		SignGte,
 		SignLike,
 		SignNlike,
+		SignIn,
 		SignAnyEq,
 		SignAnyNeq,
 		SignAnyLike,
@@ -470,6 +474,7 @@ func isSignOperator(literal string) bool {
 		SignAnyLt,
 		SignAnyLte,
 		SignAnyGt,
+		SignAnyIn,
 		SignAnyGte:
 		return true
 	}
